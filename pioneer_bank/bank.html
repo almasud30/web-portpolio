@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bank.css">
+    <title>Pioneer Bank</title>
+</head>
+<body>
+  
+        <div id="login-area">
+            <h1 class="text-center">Welcome to Pioneer Bank</h1>
+            <div class="submit-area">
+                <h4>Login</h4>
+                <input type="text" class="form-control" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" placeholder="password">
+                <br>
+                <button id="login" class="btn btn-success">Enter</button>
+            </div>
+        </div>
+        <div id="transaction-area">
+            <div class="row">
+                <div class="col-md-4 " >
+                  <div class="deposite status">
+                      <h5>Deposite</h5>
+                      <h2>$<span id="currentDeposit">00</span></h2>                     
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="withdraw status">
+                      <h5>Withdraw</h5>
+                      <h2>$00</h2>
+                  </div>
+                </div>
+                <div class="col-md-4  ">
+                  <div class="balance status">
+                      <h5>Balance</h5>
+                      <h2>$<span id="currentBalance">1248</span></h2>
+                  </div>
+              </div>
+          </div>
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="submit-area">
+                        <h4>Deposite</h4>
+                        <input id="depositeAmount" type="text" class="form-control" placeholder="$ amount you want to deposite">
+                        <br>
+                        <button class="btn btn-success" id="addDeposite">Deposite</button>
+                      </div>  
+                    </div>
+                    <div class="col-md-6">
+                       <div class="submit-area">
+                        <h4>Withdraw</h4>
+                        <input type="text" class="form-control" placeholder="$ amount you want to deposite">
+                        <br>
+                        <button class="btn btn-success">Withdraw</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script>
+
+
+          const loginBtn=document.getElementById("login");
+          loginBtn.addEventListener("click",function(){
+            const loginArea=document.getElementById("login-area");
+            loginArea.style.display="none";
+            const transactionArea=document.getElementById("transaction-area");
+            transactionArea.style.display="block";
+          })
+
+          const depositBtn=document.getElementById("addDeposit");
+          depositBtn.addEventListener("click", function(){
+            const depositNumber=getInputNumber("depositAmount");
+
+            updateSpanText("currentDeposit", depositNumber);
+            updateSpanText("currentBalance", depositNumber);
+            document.getElementById("deposiAmount").value="";
+          })
+
+
+
+            //login button event handler
+            //   const loginBtn=document.getElementById("login");
+            //   loginBtn.addEventListener("click",function(){
+            //     const loginArea=document.getElementById("login-area");
+            //     loginArea.style.display="none";
+            //     const transactionArea=document.getElementById("transaction-area")
+            //     transactionArea.style.display="block";
+
+            //   })
+            //   //deposite button  button 
+            //  const depositBtn=document.getElementById("addDeposite");
+            //   depositBtn.addEventListener=('click',function(){
+            //     const depositeAmount=document.getElementById("depositeAmount").value;
+            //     depositNumber=parseFloat(depositeAmount);
+
+            //    updateSpanText("currentDeposit",depositNumber);           
+            //     updateSpanText("currentBalance",depositNumber);
+            //     document.getElementById("depositeAmount").value="";
+                
+                
+            //   })
+              
+            //   function updateSpanText(id,depositNumber){
+            //     const current=document.getElementById(id).innerText;
+            //     const currentNumber=parseFloat(current);
+            //     const totalAmount=depositNumber+currentNumber;
+            //     document.getElementById(id).innerText=totalAmount;
+            //   }
+               
+        </script>
+
+        
+		<script src="bootstrap/css/bootstrap.min.js" crossorigin="anonymes"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
